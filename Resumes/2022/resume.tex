@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+\name{Branden Chong}
+\program{Software Engineering Major - B.S.}
+\contact{brandenchong99@gmail.com \hspace{2cm} 213-841-2927 \hspace{2cm} github.com/bchong12}
+\end{resume_header}
+
+\begin{resume_section}{About Me}
+  \begin{nospacetabbing}
+
+  \textbf{Technical Skills}  \= Java, Javascript, Dart, PostgreSQL, HTML, CSS \\*
+  \textbf{Frameworks} \> React, Redux, Express, Flutter, NodeJS \\*
+  \textbf{Languages}  \> Fluent in English; Conversational Proficiency in Korean; \\*
+  \textbf{Interests} \> Basketball, Cinematography, Design, Music\\*
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{Experience}
+  \begin{resume_employer}{PayPal}{Software Engineering Intern}{San Jose, CA}{Summer 2021}
+    \item Set up client-side logs using beaver-logger to collect metrics on the Merchant Dashboard Page
+    \item Created dashboards in Splunk to track window load time, total memory usage, and live-site availability
+    \item Implemented SonarQube to test code quality for individual fragments across the Merchant Dashboard Page
+    \item Metrics and dashboards tracked 19 million users and 4 million page visits per day
+  \end{resume_employer}
+   \begin{resume_employer}{Nom}{Cofounder}{Irvine, CA}{Present}
+    \item Brainstormed, prototyped, coded, and lead a food social media application written in Flutter
+    \item Implemented and lead an agile sprint system to promote structure and accountability
+    \item Prototyped product wireframes in Figma and performed usability testing to research product market fit
+    \item Led a team of mobile developers in coding the application and maintained the codebase in Git
+  \end{resume_employer}
+  \begin{resume_employer}{Blue Anchor Insurance}{Web Developer}{Buena Park, CA}{Summer 2020}
+    \item Developed a full stack application in React, NodeJS, and PostgreSQL for life insurance agents to record client meetings and send a pdf version as an email attachment
+    \item Supplemented the application with Korean language support
+  \end{resume_employer}
+\end{resume_section}
+
+
+\begin{resume_section}{Competitions and Personal Projects}
+  \begin{resume_subsection}[(August 2020)]{Local Giver \footnotesize (Hackathon Winner) \parskip}
+  \begin{subitems}
+    \item Developed a full stack application for consumers to crowdfund for local businesses impacted by coronavirus
+    \item Won Third Best Overall at HackTheU 2020 and Best Beginner Hack at OwlHacks 2020
+    \end{subitems}
+  \end{resume_subsection}
+
+
+  \begin{resume_subsection}[(November 2020)]{ScanAndGo}
+  \begin{subitems}
+    \item Developed a full stack application for consumers at stores to scan product barcodes, store products in a cart interface, and checkout the products without human interaction
+    \item Utilized AWS (S3) buckets for image storage and the Stripe API for payments
+    \item  Integrated responsive media queries to accommodate for the target demographic, mobile phone users
+    \end{subitems}
+  \end{resume_subsection}
+
+
+
+  \begin{resume_subsection}[(September 2020)]{Still Waters}
+    \begin{subitems}
+        \item Developed a full stack application for consumers to write daily bible devotionals and daily journals
+        \item Featured a Momentum chrome extension dashboard and temperature forecasts through the darsky api 
+        \item Implemented Redux for app wide state management and BcryptJS for user authentication
+    \end{subitems}
+  \end{resume_subsection}
+
+
+\begin{resume_section}{Education}
+  \begin{resume_subsection}[Tempe, AZ (2020--Present)]{Arizona State University}
+    \begin{subitems}
+      \item Bachelor of Science (Software Engineering)
+      \item Cummulative Average: 3.39
+      \item Honors: Dean's Honours List
+    \end{subitems}
+  \end{resume_subsection}
+  
+  
+  \begin{resume_subsection}[Los Angeles, CA (2018--2020)]{University of California, Los Angeles}
+    \begin{subitems}
+      \item Bachelor of Arts (Philosophy)
+      \item Cummulative Average: 3.81
+     \end{subitems}
+  \end{resume_subsection}
+\end{resume_section}
+
+\end{document}
